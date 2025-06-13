@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Formulario </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      color: #ffffff;
+      margin-top: 40px;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .caja {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(30, 144, 255, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .caja p {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f0f8ff;
+    }
+
+    .caja input[type="text"],
+    .caja input[type="email"],
+    .caja input[type="date"],
+    .caja input[type="time"],
+    .caja input[type="color"],
+    .caja input[type="url"],
+    .caja input[type="file"],
+    .caja input[type="range"],
+    .caja textarea,
+    .caja select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #001f3f;
+      box-shadow: inset 0 0 6px rgba(0, 123, 255, 0.4);
+      transition: 0.3s;
+    }
+
+    .caja select option {
+      background-color: #dbeafe;
+      color: #001f3f;
+    }
+
+    .caja input[type="radio"] {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+
+    .caja input[type="submit"],
+    .caja input[type="reset"] {
+      background: #007bff;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
+    }
+
+    .caja input[type="submit"]:hover,
+    .caja input[type="reset"]:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    #valorCalif {
+      font-weight: bold;
+      color: #fff;
+      background-color: rgba(0, 123, 255, 0.4);
+      padding: 3px 8px;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Formulario </h1>
+  <form>
+    <div class="caja">
+      <p>Nombre:
+        <input type="text" placeholder="Escribe tu nombre" required>
+      </p>
+      <p>Sexo:
+        Hombre <input type="radio" name="sexo" value="h" required>
+        Mujer <input type="radio" name="sexo" value="m" required>
+      </p>
+      <p>Fecha:
+        <input type="date" name="fecha">
+      </p>
+      <p>Hora:
+        <input type="time" name="hora">
+      </p>
+      <p>Color favorito:
+        <input type="color" name="color">
+      </p>
+      <p>Sitio Web:
+        <input type="url" name="web">
+      </p>
+      <p>Correo:
+        <input type="email" name="correo">
+      </p>
+      <p>
+        Calificación (0-10):
+        <input type="range" name="calif" min="0" max="10" step="1" id="calif" oninput="mostrarValor(this.value)">
+        <span id="valorCalif">5</span>
+      </p>
+      <p>Archivo:
+        <input type="file" name="archivo">
+      </p>
+      <p>País de nacimiento:
+        <select name="menu">
+          <option value="0">Elige un país</option>
+          <optgroup label="América">
+            <option value="1">México</option>
+            <option value="2">Colombia</option>
+            <option value="3">Perú</option>
+          </optgroup>
+          <optgroup label="Europa">
+            <option value="4">España</option>
+            <option value="5">Francia</option>
+            <option value="6">Italia</option>
+          </optgroup>
+        </select>
+      </p>
+      <p>
+        <input type="reset" value="Borrar">
+        <input type="submit" value="Enviar">
+      </p>
+    </div>
+  </form>
+
+  <script>
+    function mostrarValor(valor) {
+      document.getElementById('valorCalif').textContent = valor;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const slider = document.getElementById('calif');
+      mostrarValor(slider.value);
+    });
+  </script>
+</body>
+</html>
